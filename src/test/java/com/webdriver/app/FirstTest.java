@@ -26,7 +26,7 @@ public class FirstTest {
 
     @Test(priority = 1, enabled = true, description = "Open any page with a head chrome browser")
     public void openSecondTest() {
-        driver.navigate().to("https://www.google.com.co/");
+        driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
     @Test(priority = 2, enabled = true, description = "Chcking new activitie")
