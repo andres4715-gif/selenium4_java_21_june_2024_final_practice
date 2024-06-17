@@ -15,8 +15,9 @@ public class OpeningNewWindowsPage {
         this.driver = driver;
     }
 
-    public boolean checkOpeningNewWindowsLabe() {
+    public boolean checkOpeningNewWindowsLabel() {
         boolean checkingOpeningMesssage = driver.findElement(openingNewWindowsPage).isDisplayed();
+        System.out.println("--- The element in the new page is displayed? -> " +  checkingOpeningMesssage);
         return checkingOpeningMesssage;
     }
 
@@ -26,7 +27,7 @@ public class OpeningNewWindowsPage {
 
     public String getNewWindowsText() {
         String gettingTextLabelNewPage = driver.findElement(newWindowsText).getText();
+        System.out.println("--- The obtained text is: " + gettingTextLabelNewPage);
         return gettingTextLabelNewPage;
-
     }
 }

@@ -31,12 +31,12 @@ public class FirstTest {
 
     @Test(priority = 2, enabled = true, description = "Chcking new activitie")
     public void executingNewPage() {
-        ArrayList<String> newTb;
         HomePage homepage = new HomePage(driver);
+        ArrayList<String> newTb;
         OpeningNewWindowsPage openingnewwindowspage = new OpeningNewWindowsPage(driver);
         driver.navigate().to("https://the-internet.herokuapp.com/");
         homepage.clickMultipleWindows();
-        Assert.assertTrue(openingnewwindowspage.checkOpeningNewWindowsLabe());
+        Assert.assertTrue(openingnewwindowspage.checkOpeningNewWindowsLabel());
         openingnewwindowspage.clickHereAction();
         newTb = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(newTb.get(1));
