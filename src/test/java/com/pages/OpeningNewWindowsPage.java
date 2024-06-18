@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class OpeningNewWindowsPage {
-
     WebDriver driver;
 
     By openingNewWindowsPage = By.xpath("//*[text() = 'Opening a new window']");
