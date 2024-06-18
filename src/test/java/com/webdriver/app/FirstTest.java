@@ -42,8 +42,8 @@ public class FirstTest {
         headerPage.clickLogOut();
     }
 
-    @Test(priority = 1, enabled = true, description = "Checking Dropdown")
-    public void dropdown() {
+    @Test(priority = 1, enabled = true, description = "Filling data and submit it")
+    public void fillFormPersonalData() {
         LoginOrangePage loginOrangePage = new LoginOrangePage(driver);
         LeftPanelOrangePage leftPanelOrangePage = new LeftPanelOrangePage(driver);
         ViewSystemUserPage viewSystemUserPage = new ViewSystemUserPage(driver);
@@ -59,11 +59,34 @@ public class FirstTest {
         headerPage.clickLogOut();
     }
 
+    @Test(priority = 1, enabled = true, description = "Checking Dropdown")
+    public void dropdownPractice() {
+        HomeNopCommercePage homeNopCommercePage = new HomeNopCommercePage(driver);
+        driver.get("https://demo.nopcommerce.com/");
+        homeNopCommercePage.chooseCurrencyOption();
+    }
+
+    @Test(priority = 1, enabled = true, description = "Checking Dropdown")
+    public void radioButton() throws InterruptedException {
+        HomeNopCommercePage homeNopCommercePage = new HomeNopCommercePage(driver);
+        RegisterNopCommercePage registerNopCommercePage = new RegisterNopCommercePage(driver);
+
+        driver.get("https://demo.nopcommerce.com/");
+        homeNopCommercePage.clickOnRegisterButton();
+        boolean maleRadioButtonInitialStatus = registerNopCommercePage.checkMaleRadioButtonStatus();
+        Assert.assertFalse(maleRadioButtonInitialStatus);
+        registerNopCommercePage.selectMaleRadioButtonToActive();
+        boolean maleRadioButtonFinalStatus = registerNopCommercePage.checkMaleRadioButtonStatus();
+        Assert.assertTrue(maleRadioButtonFinalStatus);
+        Thread.sleep(2000);
+    }
+
     @Test(priority = 2, enabled = true, description = "New activity window")
     public void executingNewPage() {
         HomePage homepage = new HomePage(driver);
-        ArrayList<String> newTb;
         OpeningNewWindowsPage openingnewwindowspage = new OpeningNewWindowsPage(driver);
+
+        ArrayList<String> newTb;
         driver.navigate().to("https://the-internet.herokuapp.com/");
         homepage.clickMultipleWindows();
         Assert.assertTrue(openingnewwindowspage.checkOpeningNewWindowsLabel());
