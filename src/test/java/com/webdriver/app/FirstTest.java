@@ -20,15 +20,17 @@ public class FirstTest {
         driver = new ChromeDriver();
     }
 
-    @AfterClass
+    @AfterTest
     void teardown() {
         driver.quit();
     }
 
-    @Test(priority = 1, enabled = true, description = "Checking the success log in")
+    @Test(priority = 3, enabled = true, description = "Checking the success log in")
     public void successLogin() {
         LoginOrangePage loginOrangePage = new LoginOrangePage(driver);
         DashboardOrangePage dashboardOrangePage = new DashboardOrangePage(driver);
+        HeaderPage headerPage = new HeaderPage(driver);
+
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginOrangePage.addingUserName();
         loginOrangePage.addingPassword();
@@ -36,6 +38,25 @@ public class FirstTest {
         String dataToCheck = dashboardOrangePage.gettingTitle();
         System.out.println("--- The obtained Title is: " + dataToCheck);
         Assert.assertEquals(dataToCheck, "Dashboard");
+        headerPage.clickAvatar();
+        headerPage.clickLogOut();
+    }
+
+    @Test(priority = 1, enabled = true, description = "Checking Dropdown")
+    public void dropdown() {
+        LoginOrangePage loginOrangePage = new LoginOrangePage(driver);
+        LeftPanelOrangePage leftPanelOrangePage = new LeftPanelOrangePage(driver);
+        ViewSystemUserPage viewSystemUserPage = new ViewSystemUserPage(driver);
+        HeaderPage headerPage = new HeaderPage(driver);
+
+        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        loginOrangePage.addingUserName();
+        loginOrangePage.addingPassword();
+        loginOrangePage.clickOnLoginButton();
+        leftPanelOrangePage.flowToCheckDropdown();
+        viewSystemUserPage.fillUserName();
+        headerPage.clickAvatar();
+        headerPage.clickLogOut();
     }
 
     @Test(priority = 2, enabled = true, description = "New activity window")
