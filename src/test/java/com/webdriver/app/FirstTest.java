@@ -29,7 +29,7 @@ public class FirstTest {
         driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
-    @Test(priority = 2, enabled = true, description = "Chcking new activitie")
+    @Test(priority = 2, enabled = true, description = "New activity window")
     public void executingNewPage() {
         HomePage homepage = new HomePage(driver);
         ArrayList<String> newTb;
