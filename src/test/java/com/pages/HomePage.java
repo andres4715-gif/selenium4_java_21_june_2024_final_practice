@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
 
-    protected WebDriver driver;
+    WebDriver driver;
 
     By multipleWindows = By.xpath("//*[text()= 'Multiple Windows']");
 
