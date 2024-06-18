@@ -28,7 +28,8 @@ public class FirstTest {
     @Test(priority = 1, enabled = true, description = "Open any page with a head chrome browser")
     public void openSecondTest() {
         LoginOrangePage loginOrangePage = new LoginOrangePage(driver);
-        driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        //driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginOrangePage.addingUserName();
     }
 
