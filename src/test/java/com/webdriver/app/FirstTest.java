@@ -25,12 +25,17 @@ public class FirstTest {
         driver.quit();
     }
 
-    @Test(priority = 1, enabled = true, description = "Open any page with a head chrome browser")
-    public void openSecondTest() {
+    @Test(priority = 1, enabled = true, description = "Checking the success log in")
+    public void successLogin() {
         LoginOrangePage loginOrangePage = new LoginOrangePage(driver);
-        //driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        DashboardOrangePage dashboardOrangePage = new DashboardOrangePage(driver);
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginOrangePage.addingUserName();
+        loginOrangePage.addingPassword();
+        loginOrangePage.clickOnLoginButton();
+        String dataToCheck = dashboardOrangePage.gettingTitle();
+        System.out.println("--- The obtained Title is: " + dataToCheck);
+        Assert.assertEquals(dataToCheck, "Dashboard");
     }
 
     @Test(priority = 2, enabled = true, description = "New activity window")
