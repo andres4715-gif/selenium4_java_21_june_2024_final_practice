@@ -11,6 +11,7 @@ public class RegisterNopCommercePage {
     WebDriver driver;
 
     By male = By.id("gender-male");
+    By newsletter = By.id("Newsletter");
 
     public RegisterNopCommercePage(WebDriver driver) {
         this.driver = driver;
@@ -25,5 +26,21 @@ public class RegisterNopCommercePage {
 
     public void selectMaleRadioButtonToActive() {
         driver.findElement(male).click();
+    }
+
+    public void checkNewsLetterDefaultStatus() {
+        if(driver.findElement(newsletter).isSelected()) {
+            System.out.println("--- The news letter checkbox is selected by default.");
+        } else {
+            System.out.println("--- The news letter checkbox is not selected.");
+        }
+    }
+
+    public boolean uncheckNewsLetterCheckbox() {
+        checkNewsLetterDefaultStatus();
+        if(driver.findElement(newsletter).isSelected()) {
+            driver.findElement(newsletter).click();
+        }
+        return driver.findElement(newsletter).isSelected();
     }
 }

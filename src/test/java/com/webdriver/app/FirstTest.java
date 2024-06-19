@@ -67,7 +67,7 @@ public class FirstTest {
     }
 
     @Test(priority = 1, enabled = true, description = "Checking Dropdown")
-    public void radioButton() throws InterruptedException {
+    public void radioButton() {
         HomeNopCommercePage homeNopCommercePage = new HomeNopCommercePage(driver);
         RegisterNopCommercePage registerNopCommercePage = new RegisterNopCommercePage(driver);
 
@@ -78,7 +78,16 @@ public class FirstTest {
         registerNopCommercePage.selectMaleRadioButtonToActive();
         boolean maleRadioButtonFinalStatus = registerNopCommercePage.checkMaleRadioButtonStatus();
         Assert.assertTrue(maleRadioButtonFinalStatus);
-        Thread.sleep(2000);
+    }
+
+    @Test(priority = 1, enabled = true, description = "Checking Dropdown")
+    public void checkbox() {
+        HomeNopCommercePage homeNopCommercePage = new HomeNopCommercePage(driver);
+        RegisterNopCommercePage registerNopCommercePage = new RegisterNopCommercePage(driver);
+
+        driver.get("https://demo.nopcommerce.com/");
+        homeNopCommercePage.clickOnRegisterButton();
+        Assert.assertFalse(registerNopCommercePage.uncheckNewsLetterCheckbox());
     }
 
     @Test(priority = 2, enabled = true, description = "New activity window")
