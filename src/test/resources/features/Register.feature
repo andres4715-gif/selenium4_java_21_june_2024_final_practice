@@ -1,6 +1,6 @@
-Feature: NopCommerce some Features to test
+Feature: Register and adding personal data
 
   Scenario: Check checkbox functionality
-    Given the user is not login in the page
+    Given the user is on the nonCommerce page
     When the user clicks on register
     Then the user checks the checkbox functionality working properly
