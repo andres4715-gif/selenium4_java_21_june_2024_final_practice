@@ -1,8 +1,22 @@
-# *Cucumber BDD DEMO project*
+# *Selenium4, WEB project 2024 - 2025*
+
+## Stack: 
+- Selenium4
+- Cucumber BDD
+- TestNG
+- slf4j
+- Maven
+- Webdrivermanager
 
 ## *Structure*
 
 ![img.png](img.png)
+
+# *TODO*
+- [ ]  Reporting ExtentReports, Allure or Cucumber
+- [ ]  Logging Log4j o SLF4J
+- [ ]  CI/CD Jenkins, GitLab CI, CircleCI
+- [ ]  Tagging to run specific test or suite
 
 ## Directory Details
 
@@ -48,3 +62,4 @@
 
 ```bash
 mvn test
+```
