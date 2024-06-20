@@ -4,6 +4,12 @@
 
 ![img.png](img.png)
 
+# *TODO*
+- [ ]  Reporting ExtentReports, Allure or Cucumber
+- [ ]  Logging Log4j o SLF4J
+- [ ]  CI/CD Jenkins, GitLab CI, CircleCI
+- [ ]  Tagging to run specific test or suite
+
 ## Directory Details
 
 ### `src/main/java/com/nopCommerce/locators`
@@ -48,3 +54,4 @@
 
 ```bash
 mvn test
+```
