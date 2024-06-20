@@ -1,7 +1,6 @@
-Feature: Login functionality
+Feature: NopCommerce some Features to test
 
-  Scenario: Successful login with valid credentials
-    Given the user is on the login page
-    When the user enters valid credentials
-    And the user clicks the login button
-    Then the user should be redirected to the homepage
+  Scenario: Check checkbox functionality
+    Given the user is not login in the page
+    When the user clicks on register
+    Then the user checks the checkbox functionality working properly
