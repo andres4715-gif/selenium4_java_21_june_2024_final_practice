@@ -1,4 +1,12 @@
-# *Cucumber BDD DEMO project*
+# *Selenium4, WEB project 2024 - 2025*
+
+## Stack: 
+- Selenium4
+- Cucumber BDD
+- TestNG
+- slf4j
+- Maven
+- Webdrivermanager
 
 ## *Structure*
 
