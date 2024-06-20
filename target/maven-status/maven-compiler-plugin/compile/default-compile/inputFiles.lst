@@ -1,1 +1,4 @@
-/Users/ANDRIOSM/Documents/andresRios/selenium4_java_18_june_2024_final_practice/my-app-selenium-practice/src/main/java/com/selenium/app/App.java
+/Users/ANDRIOSM/Documents/andresRios/github/selenium4_java_21_june_2024_final_practice/src/main/java/com/nopCommerce/pages/BasePage.java
+/Users/ANDRIOSM/Documents/andresRios/github/selenium4_java_21_june_2024_final_practice/src/main/java/com/nopCommerce/pages/HomeNopCommercePage.java
+/Users/ANDRIOSM/Documents/andresRios/github/selenium4_java_21_june_2024_final_practice/src/main/java/com/nopCommerce/pages/LoginPage.java
+/Users/ANDRIOSM/Documents/andresRios/github/selenium4_java_21_june_2024_final_practice/src/main/java/com/nopCommerce/pages/RegisterNopCommercePage.java

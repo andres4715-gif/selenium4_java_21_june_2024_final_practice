@@ -1,6 +1,6 @@
 package com.webdriver.app;
 
-import com.pages.*;
+import com.pages_old_pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.openqa.selenium.WebDriver;
@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
+import com.nopCommerce.pages.HomeNopCommercePage;
+import com.nopCommerce.pages.RegisterNopCommercePage;
 
 import java.util.ArrayList;
 
