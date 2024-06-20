@@ -13,7 +13,7 @@ public class RegisterSteps {
     @Given("the user is on the nonCommerce page")
     public void the_user_is_on_the_nonCommerce_page() {
         driver = Hooks.getDriver();
-        driver.get("https://demo.nopcommerce.com/");
+        driver.get(Hooks.getBaseUrl());
     }
 
     @When("the user clicks on register")

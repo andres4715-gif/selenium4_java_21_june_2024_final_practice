@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Hooks {
     private static WebDriver driver;
+    private static final String BASE_URL = "https://demo.nopcommerce.com/";
 
     @Before
     public void setUp() {
@@ -27,5 +28,9 @@ public class Hooks {
 
     public static WebDriver getDriver() {
         return driver;
+    }
+
+    public static String getBaseUrl() {
+        return BASE_URL;
     }
 }
