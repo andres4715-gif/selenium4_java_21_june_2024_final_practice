@@ -6,9 +6,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class Hooks {
     private static WebDriver driver;
-    private static final String BASE_URL = "https://demo.nopcommerce.com/";
+    private static String baseUrl;
 
     @Before
     public void setUp() {
@@ -31,6 +35,22 @@ public class Hooks {
     }
 
     public static String getBaseUrl() {
-        return BASE_URL;
+        if (baseUrl == null) {
+            baseUrl = loadBaseUrl();
+        }
+        return baseUrl;
+    }
+
+    private static String loadBaseUrl() {
+        Properties prop = new Properties();
+        try (InputStream input = Hooks.class.getClassLoader().getResourceAsStream("config.properties")) {
+            if (input == null) {
+                throw new RuntimeException("Sorry, unable to find config.properties");
+            }
+            prop.load(input);
+            return prop.getProperty("base.url");
+        } catch (IOException ex) {
+            throw new RuntimeException("Error loading configuration", ex);
+        }
     }
 }
