@@ -7,11 +7,11 @@ import com.nopCommerce.utils.Hooks;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class LoginSteps {
+public class RegisterSteps {
     WebDriver driver;
 
-    @Given("the user is not login in the page")
-    public void the_user_is_not_login_in_the_page() {
+    @Given("the user is on the nonCommerce page")
+    public void the_user_is_on_the_nonCommerce_page() {
         driver = Hooks.getDriver();
         driver.get("https://demo.nopcommerce.com/");
     }
