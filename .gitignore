@@ -23,7 +23,6 @@
 *.js
 *.txt
 *.iml
-*.png
 *.ico
 *.svg
 .idea/modules.xml
