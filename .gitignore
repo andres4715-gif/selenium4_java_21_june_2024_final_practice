@@ -23,7 +23,6 @@
 *.js
 *.txt
 *.iml
-*.xml
 *.png
 *.ico
 *.svg
@@ -33,3 +32,4 @@ my-app-selenium-practice.iml
 hs_err_pid*
 replay_pid*
 target/
+.idea/
