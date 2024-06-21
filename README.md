@@ -69,3 +69,13 @@ $ mvn test
 ```bash
 $ mvn install -U
 ```
+
+## More cucumber options: 
+- src/test/java/com/nopCommerce/runners/TestRunner.java
+```text
+monochrome = true, "Removes ANSI control characters to improve readability."
+tags = "@smoke", "Executes only the scenarios tagged as @smoke."
+strict = true, "Causes the tests to fail if there are undefined or unimplemented steps."
+dryRun = false, "Runs the scenarios without actually executing the steps (false: normal execution)."
+snippets = SnippetType.CAMELCASE "Generates snippets using camelCase."
+```
