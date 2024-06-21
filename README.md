@@ -13,10 +13,11 @@
 ![img.png](img.png)
 
 # *TODO*
-- [ ]  Reporting ExtentReports, Allure or Cucumber
+- [X]  Reporting ExtentReports, Allure or Cucumber
 - [ ]  Logging Log4j o SLF4J
 - [ ]  CI/CD Jenkins, GitLab CI, CircleCI
 - [ ]  Tagging to run specific test or suite
+- [ ]  TESTNG's execution by class and methods
 
 ## Directory Details
 
@@ -61,5 +62,10 @@
 3. Run the following Maven command to execute the tests:
 
 ```bash
-mvn test
+$ mvn test
+```
+
+## How install Maven dependencies: 
+```bash
+$ mvn install -U
 ```

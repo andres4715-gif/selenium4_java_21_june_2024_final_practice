@@ -58,7 +58,7 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>7.0.0</version>
+      <version>7.18.0</version>
     </dependency>
 
     <dependency>
@@ -66,6 +66,13 @@
       <artifactId>cucumber-java</artifactId>
       <version>1.2.5</version>
       <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+    <dependency>
+      <groupId>net.masterthought</groupId>
+      <artifactId>maven-cucumber-reporting</artifactId>
+      <version>5.8.1</version>
     </dependency>
 
   </dependencies>
