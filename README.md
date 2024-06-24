@@ -118,7 +118,7 @@ ___
 
 # *TODO*
 - [X]  Reporting ExtentReports, Allure or Cucumber
-- [ ]  Logging Log4j o SLF4J
+- [X]  Logging SLF4J and logback-classic
 - [ ]  CI/CD Jenkins, GitLab CI, CircleCI
 - [X]  Tagging to run specific test or suite
 - [X]  TESTNG's execution by class and methods or @tags

@@ -5,12 +5,15 @@ import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class Hooks {
+    private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
     private static WebDriver driver;
     private static String baseUrl;
 
@@ -38,6 +41,7 @@ public class Hooks {
         if (baseUrl == null) {
             baseUrl = loadBaseUrl();
         }
+        logger.info("Opening browser with URL: {}", baseUrl);
         return baseUrl;
     }
 

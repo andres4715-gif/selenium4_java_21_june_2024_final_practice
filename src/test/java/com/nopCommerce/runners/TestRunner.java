@@ -2,6 +2,8 @@ package com.nopCommerce.runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
@@ -15,9 +17,12 @@ import org.testng.annotations.DataProvider;
         }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
+    private static final Logger logger = LoggerFactory.getLogger(TestRunner.class);
+
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {
+        logger.info("Loading Cucumber scenarios");
         return super.scenarios();
     }
 }
