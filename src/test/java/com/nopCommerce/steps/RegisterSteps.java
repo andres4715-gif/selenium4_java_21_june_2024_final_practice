@@ -2,16 +2,22 @@ package com.nopCommerce.steps;
 
 import com.nopCommerce.pages.HomeNopCommercePage;
 import com.nopCommerce.pages.RegisterNopCommercePage;
-import io.cucumber.java.en.*;
 import com.nopCommerce.utils.Hooks;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
 public class RegisterSteps {
+    private static final Logger logger = LoggerFactory.getLogger(RegisterSteps.class);
     WebDriver driver;
 
     @Given("the user is on the nonCommerce page")
     public void the_user_is_on_the_nonCommerce_page() {
+        logger.info("--- Navigating to nonCommerce page");
         driver = Hooks.getDriver();
         driver.get(Hooks.getBaseUrl());
     }
