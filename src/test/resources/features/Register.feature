@@ -1,5 +1,6 @@
 Feature: Register and adding personal data
 
+  @Smoke
   Scenario: Check checkbox functionality
     Given the user is on the nonCommerce page
     When the user clicks on register

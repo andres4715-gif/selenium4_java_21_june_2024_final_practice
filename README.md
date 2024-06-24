@@ -12,13 +12,6 @@
 
 ![img.png](img.png)
 
-# *TODO*
-- [X]  Reporting ExtentReports, Allure or Cucumber
-- [ ]  Logging Log4j o SLF4J
-- [ ]  CI/CD Jenkins, GitLab CI, CircleCI
-- [ ]  Tagging to run specific test or suite
-- [ ]  TESTNG's execution by class and methods
-
 ## Directory Details
 
 ### `src/main/java/com/nopCommerce/locators`
@@ -79,3 +72,55 @@ strict = true, "Causes the tests to fail if there are undefined or unimplemented
 dryRun = false, "Runs the scenarios without actually executing the steps (false: normal execution)."
 snippets = SnippetType.CAMELCASE "Generates snippets using camelCase."
 ```
+---
+# *TestNG*
+## How to run the project:
+
+
+```shell
+* Command line: 
+
+$ mvn test -DsuiteXmlFile=testng.xml
+
+Or 
+
+Also is possible to run the specific file just right click on the file: `testng.xml` 
+then choose the TestNG option to run the file
+```
+## To run the specific Scenario with @tag 
+
+1. Add a @tag to specific scenario.
+```Gherkin
+  @Smoke
+  Scenario: Check checkbox functionality
+    Given the user is on the nonCommerce page
+    When the user clicks on register
+    Then the user checks the checkbox functionality working properly
+```
+2. Add this @tag on the cucumber options
+```Properties
+@CucumberOptions(
+        features = "src/test/resources/features",
+        glue = {"com.nopCommerce.steps", "com.nopCommerce.utils"},
+        tags = "@Smoke",
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports/report.html",
+                "json:target/cucumber-reports/cucumber.json"
+        }
+)
+```
+3. Run with command line: 
+```shell
+$ mvn test -Dcucumber.filter.tags="@Smoke" -DsuiteXmlFile=testng.xml
+```
+___
+
+# *TODO*
+- [X]  Reporting ExtentReports, Allure or Cucumber
+- [ ]  Logging Log4j o SLF4J
+- [ ]  CI/CD Jenkins, GitLab CI, CircleCI
+- [X]  Tagging to run specific test or suite
+- [X]  TESTNG's execution by class and methods or @tags
+- [ ]  Add more scenarios to run with TestNG (with more test added)
+- [ ]  Send data using env variables from TESTNG or from .properties file
