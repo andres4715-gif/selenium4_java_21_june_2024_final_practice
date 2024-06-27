@@ -9,35 +9,42 @@
 - Webdrivermanager
 
 ## *Structure*
+![img.png](img.png)
 
-![img_1.png](img_1.png)
+# Description of the Project Structure
 
-## Directory Details
+## src/main/java
+Contains the main Java source files.
 
-### `src/main/java/com/nopCommerce/locators`
+- `com/nopCommerce/helpers/FormRegisterDataHelper.java`: Helper class for form registration data.
+- `com/nopCommerce/locators/RegisterNopCommerceLocators.java`: Locators for the registration page.
+- `com/nopCommerce/pages/HomeNopCommercePage.java`: Page Object Model (POM) class for the home page.
+- `com/nopCommerce/FormRegisterData.java`: Data class for form registration.
 
-- **HomeNopCommerceLocators.java**: Contains locators for the Home page elements.
+## src/main/resources
+Contains configuration and resource files.
 
-### `src/main/java/com/nopCommerce/pages`
+- `logback.xml`: Configuration for logging.
 
-- **BasePage.java**: A base page class that other page classes extend.
-- **HomeNopCommercePage.java**: Contains methods to interact with the Home page.
+## src/test/java
+Contains the test Java source files.
 
-### `src/test/java/com/nopCommerce/steps`
+- `com/nopCommerce/runners/TestRunner.java`: Configuration for the test runner.
+- `com/nopCommerce/steps/RegisterSteps.java`: Step definitions for Cucumber.
+- `com/nopCommerce/utils/Hooks.java`: Hooks for setup and teardown.
+- `com/nopCommerce/utils/GenerateReport.java`: Utility for generating test reports.
 
-- **LoginSteps.java**: Step definitions for the login feature.
+## src/test/resources
+Contains the resources for tests.
 
-### `src/test/java/com/nopCommerce/utils`
+- `features/Register.feature`: Feature file for Cucumber tests.
+- `config.properties`: Configuration properties for the tests.
 
-- **Hooks.java**: Contains setup and teardown methods for the tests.
+## Project Configuration Files
 
-### `src/test/java/com/nopCommerce/runners`
-
-- **TestRunner.java**: Configures and runs the Cucumber tests with TestNG.
-
-### `src/test/resources/features`
-
-- **login.feature**: Contains the Cucumber feature file for login tests.
+- `.gitignore`: Git ignore file.
+- `pom.xml`: Maven configuration file.
+- `testng.xml`: TestNG configuration file.
 
 ## Usage
 
@@ -125,6 +132,5 @@ ___
 - [X]  Add more scenarios to run with TestNG (with more test added)
 - [ ]  Send data using env variables from TESTNG or from .properties file
 - [X]  Convert getter and setters to work with lombok
-- [ ]  Create new folder structure and change image on the readme file. 
 - [ ]  Check execution in parallel and non parallel both executions working fine
-- [ ]  Edit the README file with the new folder structure and paths 
+- [X]  Edit the README file with the new folder structure and paths
