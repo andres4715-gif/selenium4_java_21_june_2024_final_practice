@@ -134,3 +134,4 @@ ___
 - [X]  Convert getter and setters to work with lombok
 - [ ]  Check execution in parallel and non parallel both executions working fine
 - [X]  Edit the README file with the new folder structure and paths
+- [ ]  Create a new docker file to run on the cloud
