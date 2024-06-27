@@ -15,6 +15,7 @@ import org.testng.Assert;
 
 public class RegisterSteps {
     private static final Logger logger = LoggerFactory.getLogger(RegisterSteps.class);
+
     RegisterNopCommercePage registerNopCommercePage;
     HomeNopCommercePage homeNopCommercePage;
     WebDriver driver;
@@ -43,5 +44,19 @@ public class RegisterSteps {
         registerNopCommercePage = new RegisterNopCommercePage(driver);
         FormRegisterData formRegisterData = FormRegisterDataHelper.convertDataTableToFormRegisterData(dataTable);
         registerNopCommercePage.fillRegisterForm(formRegisterData);
+    }
+
+    @Then("the user choose his gender, on the Register Page")
+    public void the_user_choose_his_gender_on_the_Register_Page() {
+        registerNopCommercePage = new RegisterNopCommercePage(driver);
+        Assert.assertFalse(registerNopCommercePage.checkGenderDefaultStatus());
+        Assert.assertTrue(registerNopCommercePage.selectMaleGender());
+    }
+
+    @Then("the user choose Day of birth, on the Register Page")
+    public void the_user_choose_Day_of_birth_on_the_Register_Page(io.cucumber.datatable.DataTable dataTable) {
+        registerNopCommercePage = new RegisterNopCommercePage(driver);
+        FormRegisterData formRegisterData = FormRegisterDataHelper.convertDataTableToFormRegisterData(dataTable);
+        registerNopCommercePage.fillDayOfBirthDay(formRegisterData);
     }
 }
