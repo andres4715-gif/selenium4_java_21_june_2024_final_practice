@@ -10,7 +10,7 @@
 
 ## *Structure*
 
-![img.png](img.png)
+![img_1.png](img_1.png)
 
 ## Directory Details
 
@@ -124,3 +124,6 @@ ___
 - [X]  TESTNG's execution by class and methods or @tags
 - [ ]  Add more scenarios to run with TestNG (with more test added)
 - [ ]  Send data using env variables from TESTNG or from .properties file
+- [ ]  Convert getter and setters to work with lombok
+- [ ]  Create new folder structure and change image on the readme file. 
+- [ ]  Check execution in parallel and non parallel both executions working fine

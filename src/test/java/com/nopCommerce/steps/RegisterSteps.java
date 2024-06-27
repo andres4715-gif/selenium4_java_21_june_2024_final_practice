@@ -1,5 +1,7 @@
 package com.nopCommerce.steps;
 
+import com.nopCommerce.FormRegisterData;
+import com.nopCommerce.helpers.FormRegisterDataHelper;
 import com.nopCommerce.pages.HomeNopCommercePage;
 import com.nopCommerce.pages.RegisterNopCommercePage;
 import com.nopCommerce.utils.Hooks;
@@ -13,6 +15,8 @@ import org.testng.Assert;
 
 public class RegisterSteps {
     private static final Logger logger = LoggerFactory.getLogger(RegisterSteps.class);
+    RegisterNopCommercePage registerNopCommercePage;
+    HomeNopCommercePage homeNopCommercePage;
     WebDriver driver;
 
     @Given("the user is on the nonCommerce page")
@@ -24,13 +28,20 @@ public class RegisterSteps {
 
     @When("the user clicks on register")
     public void the_user_clicks_on_register() {
-        HomeNopCommercePage homeNopCommercePage = new HomeNopCommercePage(driver);
+        homeNopCommercePage = new HomeNopCommercePage(driver);
         homeNopCommercePage.clickOnRegisterButton();
     }
 
     @Then("the user checks the checkbox functionality working properly")
     public void the_user_checks_the_checkbox_functionality_working_properly() {
-        RegisterNopCommercePage registerNopCommercePage = new RegisterNopCommercePage(driver);
+        registerNopCommercePage = new RegisterNopCommercePage(driver);
         Assert.assertFalse(registerNopCommercePage.uncheckNewsLetterCheckbox());
+    }
+
+    @Then("the user adds the personal information, on the Register Page")
+    public void the_user_adds_the_personal_information_on_the_Register_Page(io.cucumber.datatable.DataTable dataTable) {
+        registerNopCommercePage = new RegisterNopCommercePage(driver);
+        FormRegisterData formRegisterData = FormRegisterDataHelper.convertDataTableToFormRegisterData(dataTable);
+        registerNopCommercePage.fillRegisterForm(formRegisterData);
     }
 }
