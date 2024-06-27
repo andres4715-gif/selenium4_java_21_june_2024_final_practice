@@ -135,7 +135,8 @@ ___
 - [X]  TESTNG's execution by class and methods or @tags
 - [X]  Add more scenarios to run with TestNG (with more test added)
 - [ ]  Send data using env variables from TESTNG or from .properties file
+- [ ]  Create more files to run test for regression, sanity y smock test 
 - [X]  Convert getter and setters to work with lombok
-- [ ]  Check execution in parallel and non parallel both executions working fine
+- [X]  Check execution in parallel and non parallel both executions working fine
 - [X]  Edit the README file with the new folder structure and paths
 - [ ]  Create a new docker file to run on the cloud

@@ -5,6 +5,7 @@ import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,33 +15,29 @@ import java.util.Properties;
 
 public class Hooks {
     private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
     private static String baseUrl;
 
     @Before
     public void setUp() {
-        WebDriverManager.chromedriver().clearDriverCache().setup();
-        if (driver == null) {
-            driver = new ChromeDriver();
-            // driver.manage().window().maximize();
-        }
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        WebDriver driver = new ChromeDriver(options);
+        driverThreadLocal.set(driver);
+        // driver.manage().window().maximize();
     }
 
     @After
     public void tearDown() {
+        WebDriver driver = driverThreadLocal.get();
         if (driver != null) {
-            try {
-                driver.quit();
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                driver = null;
-            }
+            driver.quit();
+            driverThreadLocal.remove();
         }
     }
 
     public static WebDriver getDriver() {
-        return driver;
+        return driverThreadLocal.get();
     }
 
     public static String getBaseUrl() {
