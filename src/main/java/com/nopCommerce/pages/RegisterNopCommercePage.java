@@ -3,8 +3,14 @@ package com.nopCommerce.pages;
 import com.nopCommerce.FormRegisterData;
 import com.nopCommerce.locators.RegisterNopCommerceLocators;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RegisterNopCommercePage extends BasePage {
+    private static final Logger logger = LoggerFactory.getLogger(RegisterNopCommercePage.class);
+
     public RegisterNopCommercePage(WebDriver driver) {
         super(driver);
     }
@@ -15,10 +21,10 @@ public class RegisterNopCommercePage extends BasePage {
      * and prints the result to the console.
      */
     public void checkNewsLetterDefaultStatus() {
-        if(driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
-            System.out.println("--- The news letter checkbox is selected by default.");
+        if (driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
+            logger.info("--- The news letter checkbox is selected by default.");
         } else {
-            System.out.println("--- The news letter checkbox is not selected.");
+            logger.info("--- The news letter checkbox is not selected.");
         }
     }
 
@@ -32,7 +38,7 @@ public class RegisterNopCommercePage extends BasePage {
      */
     public boolean uncheckNewsLetterCheckbox() {
         checkNewsLetterDefaultStatus();
-        if(driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
+        if (driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
             driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).click();
         }
         return driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected();
@@ -50,5 +56,43 @@ public class RegisterNopCommercePage extends BasePage {
         driver.findElement(RegisterNopCommerceLocators.COMPANY_INPUT).sendKeys(data.getCompanyName());
         driver.findElement(RegisterNopCommerceLocators.PASSWORD_INPUT).sendKeys(data.getPassword());
         driver.findElement(RegisterNopCommerceLocators.CONFIRM_PASSWORD_INPUT).sendKeys(data.getConfirmPassword());
+    }
+
+    /**
+     * Checks the default status of the gender male radio button.
+     *
+     * @return true if the male gender radio button is selected by default, false otherwise.
+     */
+    public boolean checkGenderDefaultStatus() {
+        boolean genderMale = driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON).isSelected();
+        String result = String.format("--- The Default status is: %s", genderMale);
+        logger.info(result);
+        return genderMale;
+    }
+
+    /**
+     * Selects the male gender radio button and checks its current status.
+     *
+     * @return true if the male gender radio button is selected, false otherwise.
+     */
+    public boolean selectMaleGender() {
+        driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON).click();
+        boolean genderMaleCurrentStatus = driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON).isSelected();
+        String result = String.format("--- The Current status is: %s", genderMaleCurrentStatus);
+        logger.info(result);
+        return genderMaleCurrentStatus;
+    }
+
+    /**
+     * Fills the day of birth dropdown with the provided day value from the given data.
+     *
+     * @param data An instance of FormRegisterData containing the day value to select in the dropdown.
+     */
+    public void fillDayOfBirthDay(FormRegisterData data) {
+        WebElement dropdownDayElement = driver.findElement(RegisterNopCommerceLocators.DAY_BIRTH_DAY_DROP_DOWN);
+        Select dropdown_day = new Select(dropdownDayElement);
+        dropdown_day.selectByVisibleText(data.getDay());
+        String dayToBeAdded = String.format("--- The Birth day to be added on the form is: %s", data.getDay());
+        logger.info(dayToBeAdded);
     }
 }

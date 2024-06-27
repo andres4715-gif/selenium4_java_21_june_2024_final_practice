@@ -18,6 +18,7 @@ public class FormRegisterDataHelper {
         formRegisterData.setCompanyName(data.get(0).get("companyName"));
         formRegisterData.setPassword(data.get(0).get("password"));
         formRegisterData.setConfirmPassword(data.get(0).get("confirmPassword"));
+        formRegisterData.setDay(data.get(0).get("day"));
         return formRegisterData;
     }
 }

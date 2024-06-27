@@ -9,6 +9,8 @@ public class FormRegisterData {
     private String password;
     private String confirmPassword;
 
+    private String day;
+
     // Getters and Setters
     public String getFirstName() {
         return firstName;
@@ -56,5 +58,13 @@ public class FormRegisterData {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
     }
 }

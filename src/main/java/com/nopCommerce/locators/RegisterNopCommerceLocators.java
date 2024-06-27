@@ -10,4 +10,6 @@ public class RegisterNopCommerceLocators {
     public static final By COMPANY_INPUT = By.id("Company");
     public static final By PASSWORD_INPUT = By.id("Password");
     public static final By CONFIRM_PASSWORD_INPUT = By.id("ConfirmPassword");
+    public static final By GENDER_MALE_RADIO_BUTTON = By.id("gender-male");
+    public static final By DAY_BIRTH_DAY_DROP_DOWN = By.name("DateOfBirthDay");
 }
