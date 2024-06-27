@@ -1,5 +1,6 @@
 package com.nopCommerce.pages;
 
+import com.nopCommerce.FormRegisterData;
 import com.nopCommerce.locators.RegisterNopCommerceLocators;
 import org.openqa.selenium.WebDriver;
 
@@ -14,7 +15,7 @@ public class RegisterNopCommercePage extends BasePage {
      * and prints the result to the console.
      */
     public void checkNewsLetterDefaultStatus() {
-        if(driver.findElement(RegisterNopCommerceLocators.NEW_LETTER).isSelected()) {
+        if(driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
             System.out.println("--- The news letter checkbox is selected by default.");
         } else {
             System.out.println("--- The news letter checkbox is not selected.");
@@ -31,9 +32,23 @@ public class RegisterNopCommercePage extends BasePage {
      */
     public boolean uncheckNewsLetterCheckbox() {
         checkNewsLetterDefaultStatus();
-        if(driver.findElement(RegisterNopCommerceLocators.NEW_LETTER).isSelected()) {
-            driver.findElement(RegisterNopCommerceLocators.NEW_LETTER).click();
+        if(driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
+            driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).click();
         }
-        return driver.findElement(RegisterNopCommerceLocators.NEW_LETTER).isSelected();
+        return driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected();
+    }
+
+    /**
+     * Fills the registration form with the provided user data.
+     *
+     * @param data An instance of FormRegisterData containing the user data to fill the form.
+     */
+    public void fillRegisterForm(FormRegisterData data) {
+        driver.findElement(RegisterNopCommerceLocators.FIRST_NAME_INPUT).sendKeys(data.getFirstName());
+        driver.findElement(RegisterNopCommerceLocators.LAST_NAME_INPUT).sendKeys(data.getLastName());
+        driver.findElement(RegisterNopCommerceLocators.EMAIL_INPUT).sendKeys(data.getEmail());
+        driver.findElement(RegisterNopCommerceLocators.COMPANY_INPUT).sendKeys(data.getCompanyName());
+        driver.findElement(RegisterNopCommerceLocators.PASSWORD_INPUT).sendKeys(data.getPassword());
+        driver.findElement(RegisterNopCommerceLocators.CONFIRM_PASSWORD_INPUT).sendKeys(data.getConfirmPassword());
     }
 }
