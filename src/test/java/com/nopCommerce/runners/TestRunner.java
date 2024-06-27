@@ -20,7 +20,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     private static final Logger logger = LoggerFactory.getLogger(TestRunner.class);
 
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         logger.info("Loading Cucumber scenarios");
         return super.scenarios();

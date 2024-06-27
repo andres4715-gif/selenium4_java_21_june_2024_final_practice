@@ -22,14 +22,20 @@ public class Hooks {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         if (driver == null) {
             driver = new ChromeDriver();
+            // driver.manage().window().maximize();
         }
     }
 
     @After
     public void tearDown() {
         if (driver != null) {
-            driver.quit();
-            driver = null;
+            try {
+                driver.quit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                driver = null;
+            }
         }
     }
 
