@@ -3,10 +3,14 @@
 ## Stack: 
 - Selenium4
 - Cucumber BDD
+- cucumber-java
 - TestNG
 - slf4j
+- logback-classic
 - Maven
 - Webdrivermanager
+- Lombok
+- maven-cucumber-reporting
 
 ## *Structure*
 ![img.png](img.png)
