@@ -26,7 +26,7 @@ public class Hooks {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
-        // GITHUB Action execution
+        // GITHUB Action execution check on the github repository on the Action tap
         String seleniumRemoteUrl = System.getenv("SELENIUM_REMOTE_URL");
         if (seleniumRemoteUrl != null && !seleniumRemoteUrl.isEmpty()) {
             try {
