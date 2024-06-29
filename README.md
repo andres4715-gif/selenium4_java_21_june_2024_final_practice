@@ -130,7 +130,7 @@ ___
 # *TODO*
 - [X]  Reporting ExtentReports, Allure or Cucumber
 - [X]  Logging SLF4J and logback-classic
-- [ ]  CI/CD Jenkins, GitLab CI, CircleCI
+- [X]  CI/CD Jenkins, GitLab CI, CircleCI or github actions
 - [X]  Tagging to run specific test or suite
 - [X]  TESTNG's execution by class and methods or @tags
 - [X]  Add more scenarios to run with TestNG (with more test added)
@@ -140,3 +140,4 @@ ___
 - [X]  Check execution in parallel and non parallel both executions working fine
 - [X]  Edit the README file with the new folder structure and paths
 - [ ]  Create a new docker file to run on the cloud
+- [ ]  Fix setup on the github repository to protect the master branch and checks validations
