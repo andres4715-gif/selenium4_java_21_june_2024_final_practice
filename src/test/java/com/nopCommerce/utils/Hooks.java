@@ -26,7 +26,7 @@ public class Hooks {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
-        // GITHUB Action execution check on the github repository on the Action tap
+        // GITHUB Action execution
         String seleniumRemoteUrl = System.getenv("SELENIUM_REMOTE_URL");
         if (seleniumRemoteUrl != null && !seleniumRemoteUrl.isEmpty()) {
             try {
@@ -37,13 +37,29 @@ public class Hooks {
                 options.addArguments("--disable-gpu");
                 options.addArguments("--disable-software-rasterizer");
                 options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--disable-extensions");
+                options.addArguments("--disable-setuid-sandbox");
+                options.addArguments("--disable-background-networking");
+                options.addArguments("--disable-background-timer-throttling");
+                options.addArguments("--disable-client-side-phishing-detection");
+                options.addArguments("--disable-default-apps");
+                options.addArguments("--disable-hang-monitor");
+                options.addArguments("--disable-popup-blocking");
+                options.addArguments("--disable-prompt-on-repost");
+                options.addArguments("--disable-sync");
+                options.addArguments("--disable-translate");
+                options.addArguments("--metrics-recording-only");
+                options.addArguments("--no-first-run");
+                options.addArguments("--safebrowsing-disable-auto-update");
+                options.addArguments("--enable-automation");
+                options.addArguments("--disable-blink-features=AutomationControlled");
                 WebDriver driver = new RemoteWebDriver(remoteUrl, options);
                 driverThreadLocal.set(driver);
             } catch (MalformedURLException e) {
                 throw new RuntimeException("Error creating RemoteWebDriver with URL: " + seleniumRemoteUrl, e);
             }
         } else {
-            // Local Execution with ChromeDriver(options).
+            // Local Execution
             WebDriver driver = new ChromeDriver(options);
             driverThreadLocal.set(driver);
             // driver.manage().window().maximize();
