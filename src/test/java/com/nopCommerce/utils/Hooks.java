@@ -24,6 +24,12 @@ public class Hooks {
         ChromeOptions options = new ChromeOptions();
         WebDriver driver = new ChromeDriver(options);
         driverThreadLocal.set(driver);
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-software-rasterizer");
+        options.addArguments("--remote-allow-origins=*");
         // driver.manage().window().maximize();
     }
 
