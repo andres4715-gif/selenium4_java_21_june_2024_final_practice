@@ -25,25 +25,24 @@ public class Hooks {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--disable-software-rasterizer");
-        options.addArguments("--remote-allow-origins=*");
 
         String seleniumRemoteUrl = System.getenv("SELENIUM_REMOTE_URL");
 
         if (seleniumRemoteUrl != null && !seleniumRemoteUrl.isEmpty()) {
             try {
                 URL remoteUrl = new URL(seleniumRemoteUrl);
+                options.addArguments("--headless");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--disable-software-rasterizer");
+                options.addArguments("--remote-allow-origins=*");
                 WebDriver driver = new RemoteWebDriver(remoteUrl, options);
                 driverThreadLocal.set(driver);
             } catch (MalformedURLException e) {
                 throw new RuntimeException("Error creating RemoteWebDriver with URL: " + seleniumRemoteUrl, e);
             }
         } else {
-            // Local execution
             WebDriver driver = new ChromeDriver(options);
             driverThreadLocal.set(driver);
             // driver.manage().window().maximize();
