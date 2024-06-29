@@ -6,11 +6,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 public class Hooks {
@@ -22,9 +25,29 @@ public class Hooks {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        WebDriver driver = new ChromeDriver(options);
-        driverThreadLocal.set(driver);
-        // driver.manage().window().maximize();
+
+        // GITHUB Action execution
+        String seleniumRemoteUrl = System.getenv("SELENIUM_REMOTE_URL");
+        if (seleniumRemoteUrl != null && !seleniumRemoteUrl.isEmpty()) {
+            try {
+                URL remoteUrl = new URL(seleniumRemoteUrl);
+                options.addArguments("--headless");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--disable-software-rasterizer");
+                options.addArguments("--remote-allow-origins=*");
+                WebDriver driver = new RemoteWebDriver(remoteUrl, options);
+                driverThreadLocal.set(driver);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException("Error creating RemoteWebDriver with URL: " + seleniumRemoteUrl, e);
+            }
+        } else {
+            // Local Execution
+            WebDriver driver = new ChromeDriver(options);
+            driverThreadLocal.set(driver);
+            // driver.manage().window().maximize();
+        }
     }
 
     @After
