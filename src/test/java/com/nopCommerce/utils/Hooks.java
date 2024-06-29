@@ -43,7 +43,7 @@ public class Hooks {
                 throw new RuntimeException("Error creating RemoteWebDriver with URL: " + seleniumRemoteUrl, e);
             }
         } else {
-            // Local Execution with ChromeDriver(options)
+            // Local Execution with ChromeDriver(options) opening the browser
             WebDriver driver = new ChromeDriver(options);
             driverThreadLocal.set(driver);
             // driver.manage().window().maximize();
