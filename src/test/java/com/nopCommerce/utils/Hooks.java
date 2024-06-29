@@ -26,8 +26,8 @@ public class Hooks {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
+        // GITHUB Action execution
         String seleniumRemoteUrl = System.getenv("SELENIUM_REMOTE_URL");
-
         if (seleniumRemoteUrl != null && !seleniumRemoteUrl.isEmpty()) {
             try {
                 URL remoteUrl = new URL(seleniumRemoteUrl);
@@ -43,6 +43,7 @@ public class Hooks {
                 throw new RuntimeException("Error creating RemoteWebDriver with URL: " + seleniumRemoteUrl, e);
             }
         } else {
+            // Local Execution
             WebDriver driver = new ChromeDriver(options);
             driverThreadLocal.set(driver);
             // driver.manage().window().maximize();
