@@ -30,12 +30,16 @@ public class RegisterSteps {
     @When("the user clicks on register")
     public void the_user_clicks_on_register() {
         homeNopCommercePage = new HomeNopCommercePage(driver);
+        logger.info("--- The obtained Title on Home page is: " + homeNopCommercePage.gitTitle());
+        Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");
         homeNopCommercePage.clickOnRegisterButton();
     }
 
     @Then("the user checks the checkbox functionality working properly")
     public void the_user_checks_the_checkbox_functionality_working_properly() {
         registerNopCommercePage = new RegisterNopCommercePage(driver);
+        logger.info("--- The obtained Title on Register page is: " + registerNopCommercePage.gitTitle());
+        Assert.assertEquals(driver.getTitle(), "nopCommerce demo store. Register");
         Assert.assertFalse(registerNopCommercePage.uncheckNewsLetterCheckbox());
     }
 
