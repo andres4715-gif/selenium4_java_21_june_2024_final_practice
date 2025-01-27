@@ -1,5 +1,5 @@
 package com.nopCommerce.pages;
 
 public interface TitleInterface {
-    String gitTitle();
+    String getTitle();
 }

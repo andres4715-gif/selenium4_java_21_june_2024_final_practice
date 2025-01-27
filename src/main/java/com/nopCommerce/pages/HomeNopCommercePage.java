@@ -17,7 +17,7 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
     }
 
     @Override
-    public String gitTitle() {
+    public String getTitle() {
         return driver.getTitle();
     }
 }

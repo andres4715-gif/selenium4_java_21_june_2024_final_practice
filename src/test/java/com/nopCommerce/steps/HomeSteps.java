@@ -12,6 +12,7 @@ import org.testng.Assert;
 public class HomeSteps {
     private static final Logger logger = LoggerFactory.getLogger(HomeSteps.class);
     private WebDriver driver = Hooks.getDriver();
+
     HomeNopCommercePage homeNopCommercePage;
 
     @Given("the user is on the nonCommerce page")
@@ -24,7 +25,7 @@ public class HomeSteps {
     @When("the user clicks on register")
     public void the_user_clicks_on_register() {
         homeNopCommercePage = new HomeNopCommercePage(driver);
-        logger.info("--- The obtained Title on Home page is: " + homeNopCommercePage.gitTitle());
+        logger.info("--- The obtained Title on Home page is: " + homeNopCommercePage.getTitle());
         Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");
 
         homeNopCommercePage.clickOnRegisterButton();
