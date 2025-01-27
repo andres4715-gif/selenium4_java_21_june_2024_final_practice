@@ -13,6 +13,7 @@ import org.testng.Assert;
 public class RegisterSteps {
     private static final Logger logger = LoggerFactory.getLogger(RegisterSteps.class);
     private WebDriver driver = Hooks.getDriver();
+
     RegisterNopCommercePage registerNopCommercePage;
 
     @Then("the user checks the checkbox functionality working properly")
