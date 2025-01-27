@@ -1,6 +1,6 @@
 package com.nopCommerce.steps;
 
-import com.nopCommerce.FormRegisterData;
+import com.nopCommerce.models.FormRegisterData;
 import com.nopCommerce.helpers.FormRegisterDataHelper;
 import com.nopCommerce.pages.RegisterNopCommercePage;
 import com.nopCommerce.utils.Hooks;
@@ -26,6 +26,7 @@ public class RegisterSteps {
 
     @Then("the user adds the personal information, on the Register Page")
     public void the_user_adds_the_personal_information_on_the_Register_Page(io.cucumber.datatable.DataTable dataTable) {
+        logger.info("--- ✅✅✅ Filling data from dataTable");
         registerNopCommercePage = new RegisterNopCommercePage(driver);
         FormRegisterData formRegisterData = FormRegisterDataHelper.convertDataTableToFormRegisterData(dataTable);
         registerNopCommercePage.fillRegisterForm(formRegisterData);

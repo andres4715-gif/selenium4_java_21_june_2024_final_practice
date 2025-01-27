@@ -1,6 +1,6 @@
 package com.nopCommerce.pages;
 
-import com.nopCommerce.FormRegisterData;
+import com.nopCommerce.models.FormRegisterData;
 import com.nopCommerce.locators.RegisterNopCommerceLocators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
