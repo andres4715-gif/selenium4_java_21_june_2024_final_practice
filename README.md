@@ -142,3 +142,5 @@ ___
 - [ ]  Create a new docker file to run on the cloud
 - [ ]  Fix setup on the github repository to protect the master branch and checks validations
 - [X]  Made a new title interface to implement on specific pages
+
+🚀 FRAMEWORK IN CONSTRUCTION 🚧🪚

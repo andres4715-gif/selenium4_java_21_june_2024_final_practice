@@ -26,6 +26,7 @@ public class HomeSteps {
         homeNopCommercePage = new HomeNopCommercePage(driver);
         logger.info("--- The obtained Title on Home page is: " + homeNopCommercePage.gitTitle());
         Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");
+
         homeNopCommercePage.clickOnRegisterButton();
     }
 }
