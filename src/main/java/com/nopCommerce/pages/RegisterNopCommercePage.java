@@ -8,12 +8,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RegisterNopCommercePage implements TitleInterface {
-    WebDriver driver;
+public class RegisterNopCommercePage extends BasePage implements TitleInterface {
     private static final Logger logger = LoggerFactory.getLogger(RegisterNopCommercePage.class);
 
     public RegisterNopCommercePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     /**

@@ -6,7 +6,7 @@ Feature: Register and adding personal data
     When the user clicks on register
     Then the user checks the checkbox functionality working properly
 
-  @SSanity @Regression
+  @Sanity @Regression
   Scenario: Register new user in the Register Page
     Given the user is on the nonCommerce page
     When the user clicks on register
@@ -20,7 +20,7 @@ Feature: Register and adding personal data
     When the user clicks on register
     Then the user choose his gender, on the Register Page
 
-  @SSanity @Regression
+  @Sanity @Regression
   Scenario: Check dropdown functionality in the Register Page
     Given the user is on the nonCommerce page
     When the user clicks on register
