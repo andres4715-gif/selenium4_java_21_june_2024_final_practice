@@ -13,7 +13,7 @@ public class HomeSteps {
     private static final Logger logger = LoggerFactory.getLogger(HomeSteps.class);
     private WebDriver driver = Hooks.getDriver();
 
-    HomeNopCommercePage homeNopCommercePage;
+    HomeNopCommercePage homeNopCommercePage = new HomeNopCommercePage(driver);
 
     @Given("the user is on the nonCommerce page")
     public void the_user_is_on_the_nonCommerce_page() {
@@ -24,10 +24,16 @@ public class HomeSteps {
 
     @When("the user clicks on register")
     public void the_user_clicks_on_register() {
-        homeNopCommercePage = new HomeNopCommercePage(driver);
-        logger.info("--- The obtained Title on Home page is: " + homeNopCommercePage.getTitle());
+        logger.info("--- The obtained Title on Home page is: {}", homeNopCommercePage.getTitle());
         Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");
-
         homeNopCommercePage.clickOnRegisterButton();
+    }
+
+    @When("the user searches for the product {string}")
+    public void the_user_searches_for_the_product(String product) {
+        logger.info("--- Searching product: {}, Adding it in the search box", product);
+        homeNopCommercePage.addAnyProductInTheSearchBox(product);
+        logger.info("--- Product: {}, Added in the search box", product);
+        homeNopCommercePage.clickSubmit();
     }
 }

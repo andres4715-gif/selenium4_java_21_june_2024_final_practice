@@ -20,6 +20,15 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
         driver.findElement(HomeNopCommerceLocators.REGISTER_BUTTON).click();
     }
 
+    public void addAnyProductInTheSearchBox(String product) {
+        driver.findElement(HomeNopCommerceLocators.SEARCH_BOX).sendKeys(product);
+    }
+
+    public void clickSubmit() {
+        logger.info("--- Click on Search Button");
+        driver.findElement(HomeNopCommerceLocators.SEARCH_BUTTON).click();
+    }
+
     @Override
     public String getTitle() {
         return driver.getTitle();
