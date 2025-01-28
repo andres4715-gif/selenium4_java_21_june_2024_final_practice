@@ -128,19 +128,24 @@ $ mvn test -Dcucumber.filter.tags="@Smoke" -DsuiteXmlFile=testng.xml
 ___
 
 # *TODO*
-- [X]  Reporting ExtentReports, Allure or Cucumber
-- [X]  Logging SLF4J and logback-classic
-- [X]  CI/CD Jenkins, GitLab CI, CircleCI or github actions
-- [X]  Tagging to run specific test or suite
-- [X]  TESTNG's execution by class and methods or @tags
-- [X]  Add more scenarios to run with TestNG (with more test added)
-- [ ]  Send data using env variables from TESTNG or from .properties file
-- [ ]  Create more TESTNG files to run test for regression, sanity y smock test 
-- [X]  Convert getter and setters to work with lombok
-- [X]  Check execution in parallel and non parallel both executions working fine
-- [X]  Edit the README file with the new folder structure and paths
-- [ ]  Create a new docker file to run on the cloud
-- [ ]  Fix setup on the github repository to protect the master branch and checks validations
-- [X]  Made a new title interface to implement on specific pages
+- [ ] Send data using env variables from TESTNG or from .properties file
+- [ ] Create more TESTNG files to run test for regression, sanity y smock test 
+- [ ] Create a new docker file to run on the cloud
+- [ ] Fix setup on the github repository to protect the master branch and checks validations
+- [ ] Update github action to send an email after finishing the mergen to Master branch
+- [ ] Implement explicit waits 
+
+# Ready
+- [X] Made a new title interface to implement on specific pages
+- [X] Edit the README file with the new folder structure and paths
+- [X] Check execution in parallel and non parallel both executions working fine
+- [X] Convert getter and setters to work with lombok
+- [X] Reporting ExtentReports, Allure or Cucumber
+- [X] Add more scenarios to run with TestNG (with more test added)
+- [X] TESTNG's execution by class and methods or @tags
+- [X] Tagging to run specific test or suite
+- [X] CI/CD Jenkins, GitLab CI, CircleCI or github actions
+- [X] Logging SLF4J and logback-classic
+- [X] Update dependencies and vulnerability in the POM File
 
 🚀 FRAMEWORK IN CONSTRUCTION 🚧🪚

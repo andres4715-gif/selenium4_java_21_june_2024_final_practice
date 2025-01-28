@@ -1,6 +1,6 @@
 package com.nopCommerce.helpers;
 
-import com.nopCommerce.FormRegisterData;
+import com.nopCommerce.models.FormRegisterData;
 import io.cucumber.datatable.DataTable;
 
 import java.util.List;

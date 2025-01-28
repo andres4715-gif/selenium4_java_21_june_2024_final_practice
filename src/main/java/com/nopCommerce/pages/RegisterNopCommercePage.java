@@ -1,6 +1,6 @@
 package com.nopCommerce.pages;
 
-import com.nopCommerce.FormRegisterData;
+import com.nopCommerce.models.FormRegisterData;
 import com.nopCommerce.locators.RegisterNopCommerceLocators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,12 +8,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RegisterNopCommercePage implements TitleInterface {
-    WebDriver driver;
+public class RegisterNopCommercePage extends BasePage implements TitleInterface {
     private static final Logger logger = LoggerFactory.getLogger(RegisterNopCommercePage.class);
 
     public RegisterNopCommercePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     /**
@@ -98,7 +97,7 @@ public class RegisterNopCommercePage implements TitleInterface {
     }
 
     @Override
-    public String gitTitle() {
+    public String getTitle() {
         return driver.getTitle();
     }
 }

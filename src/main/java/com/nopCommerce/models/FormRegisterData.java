@@ -1,4 +1,4 @@
-package com.nopCommerce;
+package com.nopCommerce.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
