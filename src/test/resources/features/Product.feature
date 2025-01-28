@@ -24,7 +24,7 @@ Feature: Checkout and search products
 #    And the user selects the "Checkout as Guest" option
 #    Then the user should be redirected to the checkout page
 #    And the user should see the "Billing address" form
-#
+
 #  @Sanity @Regression
 #  Scenario: Update product quantity in the shopping cart using DataTable
 #    Given the user has added the product "Build your own computer" to the shopping cart
