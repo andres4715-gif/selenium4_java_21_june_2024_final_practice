@@ -133,7 +133,7 @@ ___
 - [ ] Create a new docker file to run on the cloud
 - [ ] Fix setup on the github repository to protect the master branch and checks validations
 - [ ] Update github action to send an email after finishing the mergen to Master branch
-- [ ] Implement explicit waits 
+
 
 # Ready
 - [X] Made a new title interface to implement on specific pages
@@ -147,5 +147,6 @@ ___
 - [X] CI/CD Jenkins, GitLab CI, CircleCI or github actions
 - [X] Logging SLF4J and logback-classic
 - [X] Update dependencies and vulnerability in the POM File
+- [X] Implement explicit waits
 
 🚀🚚 FRAMEWORK IN CONSTRUCTION 🚧🪚

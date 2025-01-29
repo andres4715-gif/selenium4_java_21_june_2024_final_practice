@@ -17,7 +17,9 @@ public class SearchNopCommercePage extends BasePage implements TitleInterface {
     }
 
     public String getSearchTitleName() {
-        String gettingTextLabelNewPage = driver.findElement(SearchNopCommerceLocators.NAME_TITLE_PAGE).getText();
+        WebElement nameTitlePage = driver.findElement(SearchNopCommerceLocators.NAME_TITLE_PAGE);
+        waitForElementToBeVisible(nameTitlePage);
+        String gettingTextLabelNewPage = nameTitlePage.getText();
         logger.info("--- Getting the search title name: {}", gettingTextLabelNewPage);
         return gettingTextLabelNewPage;
     }
