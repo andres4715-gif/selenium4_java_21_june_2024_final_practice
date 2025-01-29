@@ -29,7 +29,7 @@ public class SearchNopCommercePage extends BasePage implements TitleInterface {
 
         boolean hasLaptop = false;
         for (WebElement title : productTitles) {
-            if (title.getText().toLowerCase().contains("laptop")) {
+            if (title.getText().toLowerCase().contains(searchProductName)) {
                 finalProductList.add(title.getText());
                 hasLaptop = true;
             }

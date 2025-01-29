@@ -14,6 +14,6 @@ public class SearchSteps extends BaseSteps {
         logger.info("--- The title name in the page is: {}", titleName);
         Assert.assertEquals(titleName, "Search", "The title name is not correct");
         boolean listWithResults = searchNopCommercePage.verifyListOfProductName(product);
-        Assert.assertTrue(listWithResults, "No results contain the word" + product);
+        Assert.assertTrue(listWithResults, "No results contain the word: " + product);
     }
 }
