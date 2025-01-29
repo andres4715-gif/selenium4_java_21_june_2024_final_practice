@@ -1,3 +1,4 @@
+@Register
 Feature: Register and adding personal data
 
   Background:
