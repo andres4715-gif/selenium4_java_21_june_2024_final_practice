@@ -1,3 +1,4 @@
+@Product
 Feature: Checkout and search products
 
   Background:
