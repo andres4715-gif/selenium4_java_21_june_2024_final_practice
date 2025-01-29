@@ -35,9 +35,9 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
         waitForElementToBeClickable(searchButton).click();
     }
 
-    public void clickComputerMenu() {
-        logger.info("Click on Computer Menu");
-        WebElement menuComputers = driver.findElement(HomeNopCommerceLocators.MENU_COMPUTERS);
+    public void clickComputerMenu(String option) {
+        logger.info("Click on {}",  option + " Menu");
+        WebElement menuComputers = driver.findElement(HomeNopCommerceLocators.getMenuOption(option));
         waitForElementToBeClickable(menuComputers).click();
     }
 }

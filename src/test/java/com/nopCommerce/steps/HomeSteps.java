@@ -31,9 +31,9 @@ public class HomeSteps extends BaseSteps {
         homeNopCommercePage.clickSubmit();
     }
 
-    @When("the user navigates to the Computers category")
-    public void the_user_navigates_to_the_Computers_category() {
-        homeNopCommercePage.clickComputerMenu();
+    @When("the user navigates to the {string} category")
+    public void the_user_navigates_to_the_Computers_category(String category) {
+        homeNopCommercePage.clickComputerMenu(category);
         logger.info("--- The user was able to click on the computer button in the main menu");
     }
 }
