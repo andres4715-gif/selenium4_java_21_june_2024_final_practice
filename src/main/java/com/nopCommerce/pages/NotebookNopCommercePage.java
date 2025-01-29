@@ -25,4 +25,10 @@ public class NotebookNopCommercePage extends BasePage implements TitleInterface 
         logger.info("--- Obtained category title text is: {}", categoryNameTitleText);
         return categoryNameTitleText.toLowerCase();
     }
+
+    public void clickOnSecondProductOption(String option) {
+        WebElement addProductToCart = driver.findElement(NotebookNopCommerceLocators.addToCartButtonLocator(option));
+        addProductToCart.click();
+        logger.info("--- The user can see the {} ", option + " Option to add this product within the cart");
+    }
 }

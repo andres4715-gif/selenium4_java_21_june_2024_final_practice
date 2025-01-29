@@ -20,11 +20,8 @@ Feature: Checkout and search products
   Scenario: Add a product to the shopping cart
     When the user navigates to the "computers" category
     And the user selects the product "notebooks"
-#    And the user clicks on the "Add to cart" button for the second option
-#    Then the product increase the total of products in the shopping cart
-#    And the user should see the product has been added to your shopping cart
-#    And the user should be able to remove this product from the shopping cart page
-#    And the user should see the message "Your Shopping Cart is empty!"
+    And the user clicks on the Add to cart button for the "2" option
+#   Then the user can see the validation message after adding a product
 
 #  @Sanity @Regression
 #  Scenario: Update product quantity in the shopping cart using DataTable
