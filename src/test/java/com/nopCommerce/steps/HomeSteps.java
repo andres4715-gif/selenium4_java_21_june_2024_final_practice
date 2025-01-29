@@ -30,4 +30,10 @@ public class HomeSteps extends BaseSteps {
         logger.info("--- Product: {}, Added in the search box", product);
         homeNopCommercePage.clickSubmit();
     }
+
+    @When("the user navigates to the Computers category")
+    public void the_user_navigates_to_the_Computers_category() {
+        homeNopCommercePage.clickComputerMenu();
+        logger.info("--- The user was able to click on the computer button in the main menu");
+    }
 }

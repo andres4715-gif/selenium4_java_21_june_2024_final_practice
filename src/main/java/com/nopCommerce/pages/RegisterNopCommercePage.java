@@ -21,7 +21,9 @@ public class RegisterNopCommercePage extends BasePage implements TitleInterface 
      * and prints the result to the console.
      */
     public void checkNewsLetterDefaultStatus() {
-        if (driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
+        WebElement newsLetterCheckbox =  driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX);
+        waitForElementToBeVisible(newsLetterCheckbox);
+        if (newsLetterCheckbox.isSelected()) {
             logger.info("--- The news letter checkbox is selected by default.");
         } else {
             logger.info("--- The news letter checkbox is not selected.");
@@ -37,11 +39,13 @@ public class RegisterNopCommercePage extends BasePage implements TitleInterface 
      * @return {@code false} if the newsletter checkbox is unchecked, {@code true} otherwise
      */
     public boolean uncheckNewsLetterCheckbox() {
+        WebElement newsLetterCheckbox = driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX);
+        waitForElementToBeClickable(newsLetterCheckbox);
         checkNewsLetterDefaultStatus();
-        if (driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected()) {
-            driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).click();
+        if (newsLetterCheckbox.isSelected()) {
+            newsLetterCheckbox.click();
         }
-        return driver.findElement(RegisterNopCommerceLocators.NEWS_LETTER_CHECKBOX).isSelected();
+        return newsLetterCheckbox.isSelected();
     }
 
     /**
@@ -64,9 +68,10 @@ public class RegisterNopCommercePage extends BasePage implements TitleInterface 
      * @return true if the male gender radio button is selected by default, false otherwise.
      */
     public boolean checkGenderDefaultStatus() {
-        boolean genderMale = driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON).isSelected();
-        String result = String.format("--- The Default status is: %s", genderMale);
-        logger.info(result);
+        WebElement genderMaleRadioButton = driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON);
+        waitForElementToBeVisible(genderMaleRadioButton);
+        boolean genderMale = genderMaleRadioButton.isSelected();
+        logger.info("--- The Default status is: {} ", genderMale);
         return genderMale;
     }
 
@@ -76,8 +81,10 @@ public class RegisterNopCommercePage extends BasePage implements TitleInterface 
      * @return true if the male gender radio button is selected, false otherwise.
      */
     public boolean selectMaleGender() {
-        driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON).click();
-        boolean genderMaleCurrentStatus = driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON).isSelected();
+        WebElement genderMaleRadioButton = driver.findElement(RegisterNopCommerceLocators.GENDER_MALE_RADIO_BUTTON);
+        waitForElementToBeClickable(genderMaleRadioButton);
+        genderMaleRadioButton.click();
+        boolean genderMaleCurrentStatus = genderMaleRadioButton.isSelected();
         String result = String.format("--- The Current status is: %s", genderMaleCurrentStatus);
         logger.info(result);
         return genderMaleCurrentStatus;
@@ -90,6 +97,7 @@ public class RegisterNopCommercePage extends BasePage implements TitleInterface 
      */
     public void fillDayOfBirthDay(FormRegisterData data) {
         WebElement dropdownDayElement = driver.findElement(RegisterNopCommerceLocators.DAY_BIRTH_DAY_DROP_DOWN);
+        waitForElementToBeVisible(dropdownDayElement);
         Select dropdown_day = new Select(dropdownDayElement);
         dropdown_day.selectByVisibleText(data.getDay());
         String dayToBeAdded = String.format("--- The Birth day to be added on the form is: %s", data.getDay());
