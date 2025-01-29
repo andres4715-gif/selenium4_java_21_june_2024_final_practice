@@ -31,4 +31,11 @@ public class NotebookNopCommercePage extends BasePage implements TitleInterface 
         addProductToCart.click();
         logger.info("--- The user can see the {} ", option + " Option to add this product within the cart");
     }
+
+    public String verifySuccessAdditionToShoppingCartMessage() {
+        WebElement successMessage = driver.findElement(NotebookNopCommerceLocators.SUCCESS_ADDED_PRODUCT_MESSAGE);
+        String addToCartMessage = waitForElementToBeVisible(successMessage).getText();
+        logger.info("--- Obtained message: {}", addToCartMessage);
+        return addToCartMessage;
+    }
 }

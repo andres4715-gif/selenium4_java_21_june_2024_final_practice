@@ -21,7 +21,7 @@ Feature: Checkout and search products
     When the user navigates to the "computers" category
     And the user selects the product "notebooks"
     And the user clicks on the Add to cart button for the "2" option
-#   Then the user can see the validation message after adding a product
+    Then the user can see the validation message after adding a product
 
 #  @Sanity @Regression
 #  Scenario: Update product quantity in the shopping cart using DataTable
