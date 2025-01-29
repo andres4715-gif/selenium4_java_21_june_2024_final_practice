@@ -148,4 +148,4 @@ ___
 - [X] Logging SLF4J and logback-classic
 - [X] Update dependencies and vulnerability in the POM File
 
-🚀 FRAMEWORK IN CONSTRUCTION 🚧🪚
+🚀🚚 FRAMEWORK IN CONSTRUCTION 🚧🪚
