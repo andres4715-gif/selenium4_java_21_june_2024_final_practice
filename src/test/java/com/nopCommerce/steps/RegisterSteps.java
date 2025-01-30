@@ -1,5 +1,6 @@
 package com.nopCommerce.steps;
 
+import io.cucumber.datatable.DataTable;
 import com.nopCommerce.helpers.FormRegisterDataHelper;
 import com.nopCommerce.models.FormRegisterData;
 import io.cucumber.java.en.Then;
@@ -13,12 +14,12 @@ public class RegisterSteps extends BaseSteps {
     @Then("the user checks the checkbox functionality working properly")
     public void the_user_checks_the_checkbox_functionality_working_properly() {
         logger.info("--- The obtained Title on Register page is: {}", registerNopCommercePage.getTitle());
-        Assert.assertEquals(driver.getTitle(), "nopCommerce demo store. Register"); // arreglar esto
+        Assert.assertEquals(driver.getTitle(), "nopCommerce demo store. Register");
         Assert.assertFalse(registerNopCommercePage.uncheckNewsLetterCheckbox());
     }
 
     @Then("the user adds the personal information, on the Register Page")
-    public void the_user_adds_the_personal_information_on_the_Register_Page(io.cucumber.datatable.DataTable dataTable) {
+    public void the_user_adds_the_personal_information_on_the_Register_Page(DataTable dataTable) {
         logger.info("--- Filling data from dataTable");
         FormRegisterData formRegisterData = FormRegisterDataHelper.convertDataTableToFormRegisterData(dataTable);
         registerNopCommercePage.fillRegisterForm(formRegisterData);
