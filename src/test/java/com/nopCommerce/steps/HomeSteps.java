@@ -44,4 +44,9 @@ public class HomeSteps extends BaseSteps {
         homeNopCommercePage.chooseHdd();
         homeNopCommercePage.clickAddToCart();
     }
+
+    @When("the user navigates to the shopping cart")
+    public void the_user_navigates_to_the_shopping_cart() {
+        shoppingCartNopCommercePage.clickOnShoppingCartButton();
+    }
 }
