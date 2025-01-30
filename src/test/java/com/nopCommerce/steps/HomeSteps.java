@@ -36,4 +36,12 @@ public class HomeSteps extends BaseSteps {
         homeNopCommercePage.clickComputerMenu(category);
         logger.info("--- The user was able to click on the computer button in the main menu");
     }
+
+    @When("the user has added the product Build your own computer to the shopping cart")
+    public void the_user_has_added_the_product_to_the_shopping_cart() {
+        homeNopCommercePage.clickAddToCartButton();
+        homeNopCommercePage.chooseRam();
+        homeNopCommercePage.chooseHdd();
+        homeNopCommercePage.clickAddToCart();
+    }
 }

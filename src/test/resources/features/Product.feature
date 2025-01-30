@@ -16,16 +16,16 @@ Feature: Checkout and search products
       | iphone  | iphone  |
       | ring    | ring    |
 
-  @Sanity @Regression @Working
+  @Sanity @Regression
   Scenario: Add a product to the shopping cart
     When the user navigates to the "computers" category
     And the user selects the product "notebooks"
     And the user clicks on the Add to cart button for the "2" option
     Then the user can see the validation message after adding a product
 
-#  @Sanity @Regression
-#  Scenario: Update product quantity in the shopping cart using DataTable
-#    Given the user has added the product "Build your own computer" to the shopping cart
+  @Sanity @Regression @Working
+  Scenario: Update product quantity in the shopping cart using DataTable
+     When the user has added the product Build your own computer to the shopping cart
 #    When the user navigates to the shopping cart
 #    And the user updates the product quantity as follows:
 #      | productName               | quantity |
