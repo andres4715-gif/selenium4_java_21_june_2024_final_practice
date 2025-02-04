@@ -6,7 +6,7 @@ import io.cucumber.datatable.DataTable;
 import java.util.List;
 import java.util.Map;
 
-public class FormRegisterDataHelper {
+public class Helpers {
 
     public static FormRegisterData convertDataTableToFormRegisterData(DataTable dataTable) {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
