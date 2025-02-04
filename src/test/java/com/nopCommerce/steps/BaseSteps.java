@@ -12,6 +12,7 @@ public class BaseSteps {
     protected ComputerNopCommercePage computerNopCommercePage;
     protected NotebookNopCommercePage notebookNopCommercePage;
     protected ShoppingCartNopCommercePage shoppingCartNopCommercePage;
+    protected DescriptionProductNopCommercePage descriptionProductNopCommercePage;
 
     public BaseSteps() {
         this.driver = Hooks.getDriver();
@@ -21,5 +22,6 @@ public class BaseSteps {
         this.computerNopCommercePage = new ComputerNopCommercePage(driver);
         this.notebookNopCommercePage = new NotebookNopCommercePage(driver);
         this.shoppingCartNopCommercePage = new ShoppingCartNopCommercePage(driver);
+        this.descriptionProductNopCommercePage = new DescriptionProductNopCommercePage(driver);
     }
 }

@@ -1,6 +1,5 @@
 package com.nopCommerce.pages;
 
-import com.nopCommerce.locators.ComputersNopCommerceLocators;
 import com.nopCommerce.locators.NotebookNopCommerceLocators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

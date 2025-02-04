@@ -1,6 +1,7 @@
 package com.nopCommerce.pages;
 
 import com.nopCommerce.locators.SearchNopCommerceLocators;
+import com.nopCommerce.utils.Common;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -40,6 +41,11 @@ public class SearchNopCommercePage extends BasePage implements TitleInterface {
         logger.info("--- Any response with {}", searchProductName + "?: " + hasLaptop);
         logger.info("--- Final list witch contain {} ", searchProductName + ": " + finalProductList);
         return hasLaptop;
+    }
+
+    public void chooseFirstProduct() {
+        Common.clickFirst(driver.findElements(SearchNopCommerceLocators.PRODUCT), "Search");
+        logger.info("--- First product clicked");
     }
 
     @Override

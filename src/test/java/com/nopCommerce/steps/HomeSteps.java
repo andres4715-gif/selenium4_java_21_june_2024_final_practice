@@ -49,4 +49,9 @@ public class HomeSteps extends BaseSteps {
     public void the_user_navigates_to_the_shopping_cart() {
         shoppingCartNopCommercePage.clickOnShoppingCartButton();
     }
+
+    @When("the user choose {string} on the Customer service footer area")
+    public void the_user_choose_New_products_on_the_Customer_service_footer_area(String option) {
+        homeNopCommercePage.chooseCustomerServiceOption(option);
+    }
 }

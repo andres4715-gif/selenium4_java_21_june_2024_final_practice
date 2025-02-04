@@ -31,3 +31,11 @@ Feature: Checkout and search products
       | productName             |
       | Build your own computer |
     Then the user can see the total price is updated according the quantity of products
+
+  @Sanity @Regression @Working
+  Scenario: Update product quantity in the shopping cart using DataTable
+    When the user choose "New products" on the Customer service footer area
+    And the user clicks over the first product listed on the product page
+    And the user fill data product information before add to cart
+    And the user clicks on Add to cart button
+    Then the user can see the validation message after adding a product

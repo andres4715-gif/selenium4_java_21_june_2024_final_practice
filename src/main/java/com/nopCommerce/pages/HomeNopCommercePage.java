@@ -1,11 +1,16 @@
 package com.nopCommerce.pages;
 
 import com.nopCommerce.locators.HomeNopCommerceLocators;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class HomeNopCommercePage extends BasePage implements TitleInterface {
     private static final Logger logger = LoggerFactory.getLogger(RegisterNopCommercePage.class);
@@ -22,12 +27,12 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
     public void clickOnRegisterButton() {
         logger.info("--- Click on register button");
         waitForElementToBeClickable(
-        driver.findElement(HomeNopCommerceLocators.REGISTER_BUTTON)).click();
+                driver.findElement(HomeNopCommerceLocators.REGISTER_BUTTON)).click();
     }
 
     public void addAnyProductInTheSearchBox(String product) {
         waitForElementToBeVisible(
-        driver.findElement(HomeNopCommerceLocators.SEARCH_BOX)).sendKeys(product);
+                driver.findElement(HomeNopCommerceLocators.SEARCH_BOX)).sendKeys(product);
     }
 
     public void clickSubmit() {
@@ -37,7 +42,7 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
     }
 
     public void clickComputerMenu(String option) {
-        logger.info("Click on {}",  option + " Menu");
+        logger.info("Click on {}", option + " Menu");
         WebElement menuComputers = driver.findElement(HomeNopCommerceLocators.getMenuOption(option));
         waitForElementToBeClickable(menuComputers).click();
     }
@@ -61,5 +66,24 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
 
     public void clickAddToCart() {
         driver.findElement(HomeNopCommerceLocators.ADD_TO_CART).click();
+    }
+
+    public void chooseCustomerServiceOption(String selectedOption) {
+        List<String> finalCustomerOptions = new ArrayList<>();
+        List<WebElement> customerOptions = driver.findElements(HomeNopCommerceLocators.CUSTOMER_SERVICE_OPTION);
+
+        for (WebElement option : customerOptions) {
+            finalCustomerOptions.add(option.getText());
+        }
+        logger.info("--- Obtained list of customer services options {}", finalCustomerOptions);
+        String data = finalCustomerOptions.stream()
+                .filter(x -> x.contains(selectedOption))
+                .collect(Collectors.joining(", "));
+
+        String refactorData = data.toLowerCase().trim().replace(" ", "");
+        String customSelector = "//*[@href='/" + refactorData + "']";
+        logger.info("--- New element to select: {} ", customSelector);
+        WebElement option = driver.findElement(By.xpath(customSelector));
+        option.click();
     }
 }
