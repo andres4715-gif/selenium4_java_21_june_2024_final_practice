@@ -11,9 +11,8 @@ public class Common {
     private static final Logger logger = LoggerFactory.getLogger(RegisterNopCommercePage.class);
 
     public static void clickFirst(List<WebElement> webElements, String page) {
-        List<WebElement> elements = webElements;
-        if (!elements.isEmpty()) {
-            elements.getFirst().click();
+        if (!webElements.isEmpty()) {
+            webElements.getFirst().click();
         } else {
             throw new RuntimeException("No found elements with this selector");
         }

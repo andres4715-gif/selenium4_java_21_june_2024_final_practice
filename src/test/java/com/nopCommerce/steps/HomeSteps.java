@@ -54,4 +54,16 @@ public class HomeSteps extends BaseSteps {
     public void the_user_choose_New_products_on_the_Customer_service_footer_area(String option) {
         homeNopCommercePage.chooseCustomerServiceOption(option);
     }
+
+    @When("the user selects the {string} option {string} in the home page")
+    public void the_user_selects_the_option_in_the_home_page(String title, String option) {
+        boolean pollTitle = homeNopCommercePage.selectPollOption(title, option);
+        boolean optionRadioButton = homeNopCommercePage.checkOptionIsSelected(option);
+        Assert.assertTrue(optionRadioButton);
+        logger.info("--- Community poll radio button is selected");
+        logger.info("--- Does the title appear on the screen?: {}", pollTitle);
+        homeNopCommercePage.clickCommunity();
+        Assert.assertTrue(pollTitle, "--- Obtained no expected title in the home page");
+        logger.info("--- Submit button clicked");
+    }
 }
