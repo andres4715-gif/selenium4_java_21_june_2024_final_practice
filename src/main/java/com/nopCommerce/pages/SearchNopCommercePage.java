@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchNopCommercePage extends BasePage implements TitleInterface {
-    private static final Logger logger = LoggerFactory.getLogger(RegisterNopCommercePage.class);
+    private static final Logger logger = LoggerFactory.getLogger(SearchNopCommercePage.class);
 
     public SearchNopCommercePage(WebDriver driver) {
         super(driver);

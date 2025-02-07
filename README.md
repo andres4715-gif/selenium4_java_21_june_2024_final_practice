@@ -133,6 +133,7 @@ ___
 - [ ] Create a new docker file to run on the cloud
 - [ ] Fix setup on the github repository to protect the master branch and checks validations
 - [ ] Update github action to send an email after finishing the mergen to Master branch
+- [ ] Create a new method to handle a dropdown in Common file
 
 
 # Ready

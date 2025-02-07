@@ -2,6 +2,7 @@ package com.nopCommerce.steps;
 
 import com.nopCommerce.utils.Hooks;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,5 +54,24 @@ public class HomeSteps extends BaseSteps {
     @When("the user choose {string} on the Customer service footer area")
     public void the_user_choose_New_products_on_the_Customer_service_footer_area(String option) {
         homeNopCommercePage.chooseCustomerServiceOption(option);
+    }
+
+    @When("the user selects the {string} option {string} in the home page")
+    public void the_user_selects_the_option_in_the_home_page(String title, String option) {
+        boolean pollTitle = homeNopCommercePage.selectPollOption(title, option);
+        boolean optionRadioButton = homeNopCommercePage.checkOptionIsSelected(option);
+        Assert.assertTrue(optionRadioButton);
+        logger.info("--- Community poll radio button is selected");
+        logger.info("--- Does the title appear on the screen?: {}", pollTitle);
+        homeNopCommercePage.clickCommunity();
+        Assert.assertTrue(pollTitle, "--- Obtained no expected title in the home page");
+        logger.info("--- Submit button clicked");
+    }
+
+    @Then("the user can see a red message {string}")
+    public void the_user_can_see_a_red_message(String message) {
+        String messageText = homeNopCommercePage.messageVerification(message);
+        logger.info("--- Obtained message {}", messageText);
+        Assert.assertEquals(messageText, message);
     }
 }

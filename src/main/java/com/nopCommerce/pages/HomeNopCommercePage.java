@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class HomeNopCommercePage extends BasePage implements TitleInterface {
-    private static final Logger logger = LoggerFactory.getLogger(RegisterNopCommercePage.class);
+    private static final Logger logger = LoggerFactory.getLogger(HomeNopCommercePage.class);
 
     public HomeNopCommercePage(WebDriver driver) {
         super(driver);
@@ -85,5 +85,41 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
         logger.info("--- New element to select: {} ", customSelector);
         WebElement option = driver.findElement(By.xpath(customSelector));
         option.click();
+    }
+
+    public boolean selectPollOption(String title, String option) {
+        choosePollOption(option);
+        return verifyCommunityPollTitle(title);
+    }
+
+    private boolean verifyCommunityPollTitle(String title) {
+        WebElement communityTitle = driver.findElement(HomeNopCommerceLocators.COMMUNITY_POLL_TITLE);
+        String communityTitleText = communityTitle.getText();
+        logger.info("--- The obtained poll title is: {}", communityTitleText);
+        return communityTitleText.equals(title);
+    }
+
+    private void choosePollOption(String option) {
+        WebElement optionPoll = driver.findElement(HomeNopCommerceLocators.pollOption(option));
+        logger.info("--- Selected option is: {}", optionPoll.getText());
+        optionPoll.click();
+    }
+
+    public boolean checkOptionIsSelected(String option) {
+        WebElement optionPoll = driver.findElement(HomeNopCommerceLocators.pollOptionRadioButton(option));
+        return optionPoll.isEnabled();
+    }
+
+    public void clickCommunity() {
+        waitForPageToLoad();
+        WebElement submitButtonLocator = driver.findElement(HomeNopCommerceLocators.SUBMIT_POLL_BUTTON);
+        WebElement submitButton = waitForElementToBeClickable(submitButtonLocator);
+        submitButton.click();
+    }
+
+    public String messageVerification(String message) {
+        WebElement messageText = driver.findElement(HomeNopCommerceLocators.POLL_MESSAGE);
+        waitForTextToBePresent(messageText, message);
+        return messageText.getText();
     }
 }

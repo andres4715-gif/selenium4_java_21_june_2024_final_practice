@@ -11,8 +11,19 @@ public class HomeNopCommerceLocators {
     public static final By HDD_RADIO_BUTTON = By.xpath("//*[@id = 'product_attribute_3_7']");
     public static final By ADD_TO_CART = By.xpath("//button[@id = 'add-to-cart-button-1']");
     public static final By CUSTOMER_SERVICE_OPTION = By.xpath("(//*[@class='list'])[2]/li");
+    public static final By COMMUNITY_POLL_TITLE = By.xpath("//div[@class='home-page-polls']/div[1]/strong");
+    public static final By SUBMIT_POLL_BUTTON = By.xpath("//*[@class='home-page-polls'] //button[@type='button']");
+    public static final By POLL_MESSAGE = By.cssSelector("#block-poll-vote-error-1");
 
     public static By getMenuOption(String option) {
         return By.xpath("//*[@class='top-menu notmobile']//a[@href='/" + option + "']");
+    }
+
+    public static By pollOption(String option) {
+        return By.xpath("//*[text() ='" + option + "']");
+    }
+
+    public static By pollOptionRadioButton(String option) {
+        return By.xpath("//*[text() ='" + option + "']//parent::li//child::input");
     }
 }
