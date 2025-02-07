@@ -12,7 +12,8 @@ public class HomeNopCommerceLocators {
     public static final By ADD_TO_CART = By.xpath("//button[@id = 'add-to-cart-button-1']");
     public static final By CUSTOMER_SERVICE_OPTION = By.xpath("(//*[@class='list'])[2]/li");
     public static final By COMMUNITY_POLL_TITLE = By.xpath("//div[@class='home-page-polls']/div[1]/strong");
-    public static final By SUBMIT_POLL_BUTTON = By.xpath("//*[contains(@id, 'vote-poll-1')]");
+//    public static final By SUBMIT_POLL_BUTTON = By.xpath("//*[contains(@id, 'vote-poll-1')]//parent::div//child::button");
+    public static final By SUBMIT_POLL_BUTTON = By.xpath("//*[@class='home-page-polls'] //button[@type='button']");
 
     public static By getMenuOption(String option) {
         return By.xpath("//*[@class='top-menu notmobile']//a[@href='/" + option + "']");

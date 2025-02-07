@@ -1,5 +1,7 @@
 package com.nopCommerce.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,5 +31,9 @@ public class BasePage {
     // Wait for any element with certain text
     protected boolean waitForTextToBePresent(WebElement element, String text) {
         return wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+    }
+
+    public void waitForPageToLoad() {
+        wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 }

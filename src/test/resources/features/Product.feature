@@ -42,4 +42,4 @@ Feature: Checkout and search products
 
   @Sanity @Regression @poll
   Scenario: Community poll for register users
-    When the user selects the "Community poll" option "Good" in the home page
+    When the user selects the "Community poll" option "Excellent" in the home page

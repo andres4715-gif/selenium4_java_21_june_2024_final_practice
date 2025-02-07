@@ -105,13 +105,15 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
         optionPoll.click();
     }
 
-    //TODO IT IS NOT WORKING
     public boolean checkOptionIsSelected(String option) {
         WebElement optionPoll = driver.findElement(HomeNopCommerceLocators.pollOptionRadioButton(option));
         return optionPoll.isEnabled();
     }
 
     public void clickCommunity() {
-        driver.findElement(HomeNopCommerceLocators.SUBMIT_POLL_BUTTON).click();
+        waitForPageToLoad();
+        WebElement submitButtonLocator = driver.findElement(HomeNopCommerceLocators.SUBMIT_POLL_BUTTON);
+        WebElement submitButton = waitForElementToBeClickable(submitButtonLocator);
+        submitButton.click();
     }
 }
