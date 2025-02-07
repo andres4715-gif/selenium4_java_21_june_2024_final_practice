@@ -116,4 +116,10 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
         WebElement submitButton = waitForElementToBeClickable(submitButtonLocator);
         submitButton.click();
     }
+
+    public String messageVerification(String message) {
+        WebElement messageText = driver.findElement(HomeNopCommerceLocators.POLL_MESSAGE);
+        waitForTextToBePresent(messageText, message);
+        return messageText.getText();
+    }
 }

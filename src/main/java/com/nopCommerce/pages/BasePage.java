@@ -28,10 +28,11 @@ public class BasePage {
     }
 
     // Wait for any element with certain text
-    protected boolean waitForTextToBePresent(WebElement element, String text) {
-        return wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+    protected void waitForTextToBePresent(WebElement element, String text) {
+        wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 
+    // Wait for complete page load to interact with certain element
     public void waitForPageToLoad() {
         wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }

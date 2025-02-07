@@ -2,6 +2,7 @@ package com.nopCommerce.steps;
 
 import com.nopCommerce.utils.Hooks;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,5 +66,12 @@ public class HomeSteps extends BaseSteps {
         homeNopCommercePage.clickCommunity();
         Assert.assertTrue(pollTitle, "--- Obtained no expected title in the home page");
         logger.info("--- Submit button clicked");
+    }
+
+    @Then("the user can see a red message {string}")
+    public void the_user_can_see_a_red_message(String message) {
+        String messageText = homeNopCommercePage.messageVerification(message);
+        logger.info("--- Obtained message {}", messageText);
+        Assert.assertEquals(messageText, message);
     }
 }

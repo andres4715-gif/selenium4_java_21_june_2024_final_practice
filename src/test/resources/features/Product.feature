@@ -43,3 +43,4 @@ Feature: Checkout and search products
   @Sanity @Regression @poll
   Scenario: Community poll for register users
     When the user selects the "Community poll" option "Excellent" in the home page
+    Then the user can see a red message "Only registered users can vote."
