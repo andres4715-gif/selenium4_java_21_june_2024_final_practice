@@ -1,6 +1,7 @@
 package com.nopCommerce.pages;
 
 import com.nopCommerce.locators.HomeNopCommerceLocators;
+import com.nopCommerce.utils.Common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,8 +57,7 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
     public void chooseRam() {
         WebElement selectRam = driver.findElement(HomeNopCommerceLocators.RAM_DROPDOWN);
         waitForElementToBeClickable(selectRam);
-        Select memoryRam = new Select(selectRam);
-        memoryRam.selectByVisibleText("4GB [+$20.00]");
+        Common.selectByVisibleText(selectRam, "4GB [+$20.00]");
     }
 
     public void chooseHdd() {
@@ -121,5 +121,20 @@ public class HomeNopCommercePage extends BasePage implements TitleInterface {
         WebElement messageText = driver.findElement(HomeNopCommerceLocators.POLL_MESSAGE);
         waitForTextToBePresent(messageText, message);
         return messageText.getText();
+    }
+
+    public void chooseCurrency(String currencyData) {
+        WebElement currency = driver.findElement(HomeNopCommerceLocators.CURRENCY);
+        waitForElementToBeClickable(currency);
+        Common.selectByVisibleText(currency, currencyData);
+        logger.info("--- Selected currency dropdown option is: {}", currencyData);
+    }
+
+    public String verifyCurrency() {
+        WebElement newCurrency = driver.findElement(HomeNopCommerceLocators.CURRENCY_MODULE);
+        waitForTextToBePresent(newCurrency, "Euro");
+        String getCurrency = newCurrency.getText();
+        logger.info("--- Obtained currency text is: {}", getCurrency);
+        return getCurrency;
     }
 }

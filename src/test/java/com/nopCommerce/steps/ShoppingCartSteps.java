@@ -16,7 +16,7 @@ public class ShoppingCartSteps extends BaseSteps {
     double initialProductValue = 0;
 
     @When("the user updates the product quantity as follows:")
-    public void the_user_updates_the_product_quantity_as_follows(DataTable dataTable) throws InterruptedException {
+    public void the_user_updates_the_product_quantity_as_follows(DataTable dataTable) {
         String expectedProductName = "";
         String finalProductName = shoppingCartNopCommercePage.getProductName();
         logger.info("--- The product name displayed on the Shopping cart page is: {}", finalProductName);
@@ -27,7 +27,6 @@ public class ShoppingCartSteps extends BaseSteps {
         }
         Assert.assertEquals(finalProductName, expectedProductName, "Product name is not the same");
         initialProductValue = shoppingCartNopCommercePage.updateQuantity();
-        Thread.sleep(4000);
     }
 
     @Then("the user can see the total price is updated according the quantity of products")

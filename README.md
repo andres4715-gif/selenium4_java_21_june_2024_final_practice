@@ -132,8 +132,7 @@ ___
 - [ ] Create more TESTNG files to run test for regression, sanity y smock test 
 - [ ] Create a new docker file to run on the cloud
 - [ ] Fix setup on the github repository to protect the master branch and checks validations
-- [ ] Update github action to send an email after finishing the mergen to Master branch
-- [ ] Create a new method to handle a dropdown in Common file
+- [ ] Update github action to send an email after finishing the merge into Master branch
 
 
 # Ready
@@ -149,5 +148,6 @@ ___
 - [X] Logging SLF4J and logback-classic
 - [X] Update dependencies and vulnerability in the POM File
 - [X] Implement explicit waits
+- [X] Create a new method to handle a dropdown in Common file
 
 🚀🚚 FRAMEWORK IN CONSTRUCTION 🚧🪚

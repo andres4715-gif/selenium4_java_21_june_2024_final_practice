@@ -14,6 +14,8 @@ public class HomeNopCommerceLocators {
     public static final By COMMUNITY_POLL_TITLE = By.xpath("//div[@class='home-page-polls']/div[1]/strong");
     public static final By SUBMIT_POLL_BUTTON = By.xpath("//*[@class='home-page-polls'] //button[@type='button']");
     public static final By POLL_MESSAGE = By.cssSelector("#block-poll-vote-error-1");
+    public static final By CURRENCY = By.id("customerCurrency");
+    public static final By CURRENCY_MODULE = By.cssSelector("[class='currency-selector']");
 
     public static By getMenuOption(String option) {
         return By.xpath("//*[@class='top-menu notmobile']//a[@href='/" + option + "']");

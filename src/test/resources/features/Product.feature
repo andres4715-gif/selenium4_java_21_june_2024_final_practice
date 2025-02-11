@@ -44,3 +44,8 @@ Feature: Checkout and search products
   Scenario: Community poll for register users
     When the user selects the "Community poll" option "Excellent" in the home page
     Then the user can see a red message "Only registered users can vote."
+
+  @Sanity @Regression @Currency
+  Scenario: Currency Conversion
+    When the user choose "Euro" as currency, in the home page
+    Then the user verify the currency is selected
