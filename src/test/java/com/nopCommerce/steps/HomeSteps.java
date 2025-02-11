@@ -74,4 +74,15 @@ public class HomeSteps extends BaseSteps {
         logger.info("--- Obtained message {}", messageText);
         Assert.assertEquals(messageText, message);
     }
+
+    @When("the user choose {string} as currency, in the home page")
+    public void the_user_choose_dollar_as_currency(String currency) {
+        homeNopCommercePage.chooseCurrency(currency);
+    }
+
+    @Then("the user verify the currency is selected")
+    public void the_user_verify_the_currency_is_selected() {
+        String currencyText = homeNopCommercePage.verifyCurrency();
+        Assert.assertTrue(currencyText.contains("Euro"), "No expected text");
+    }
 }
