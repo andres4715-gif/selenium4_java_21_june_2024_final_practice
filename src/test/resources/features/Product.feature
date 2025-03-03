@@ -32,8 +32,8 @@ Feature: Checkout and search products
       | Build your own computer |
     Then the user can see the total price is updated according the quantity of products
 
-  @Sanity @Regression
-  Scenario: Update product quantity in the shopping cart using DataTable
+  @Sanity @Regression @Working
+  Scenario: Validation Message
     When the user choose "New products" on the Customer service footer area
     And the user clicks over the first product listed on the product page
     And the user fill data product information before add to cart

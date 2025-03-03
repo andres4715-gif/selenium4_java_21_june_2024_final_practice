@@ -20,7 +20,7 @@ public class HomeSteps extends BaseSteps {
     @When("the user clicks on register")
     public void the_user_clicks_on_register() {
         logger.info("--- The obtained Title on Home page is: {}", homeNopCommercePage.getTitle());
-        Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");
+        Assert.assertEquals(driver.getTitle(), "nopCommerce demo store. Home page title");
         homeNopCommercePage.clickOnRegisterButton();
     }
 
