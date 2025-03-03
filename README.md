@@ -150,4 +150,4 @@ ___
 - [X] Implement explicit waits
 - [X] Create a new method to handle a dropdown in Common file
 
-🚀🚚 FRAMEWORK IN CONSTRUCTION 🚧🪚
+🚀🚚 FRAMEWORK IN CONSTRUCTION 🚧🪚🙌
